@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+astroid = "*"
+isort = "*"
+lazy-object-proxy = "*"
+mccabe = "*"
+mysqlclient = "*"
+pylint = "*"
+pytz = "*"
+six = "*"
+sqlparse = "*"
+wrapt = "*"
+Django = "*"
+
+[requires]
+python_version = "*"
