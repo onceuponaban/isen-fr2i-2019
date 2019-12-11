@@ -40,4 +40,4 @@ DATABASES = {
 ## Premier lancement
 
 - Avant le premier lancement, dans le dossier `ynquiz_website`, effectuer les migrations: `python manage.py makemigrations quiz` puis `python manage.py migrate`
-- Pour lancer l'application: `python manage.py runserver`
+- Pour lancer l'application : `python manage.py runserver`
