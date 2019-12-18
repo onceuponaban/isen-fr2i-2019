@@ -1,0 +1,141 @@
+html {
+    height: 100%;
+}
+
+body
+{
+    display: flex;
+    flex-flow: column;
+    min-height: 100%;
+    padding:0px;
+    margin:0px;
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+h1, h2
+{
+    margin: 0px 5px;
+}
+
+a
+{
+    text-decoration: none;
+    color:black;
+}
+
+header img
+{
+    margin: 5px;
+}
+
+header, header a
+{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header span
+{
+    color: black;
+    padding: 5px;
+    margin-left: auto;
+}
+  
+header span:hover
+{
+    background-color: black;
+    color: white;
+}
+
+#sideMenu
+{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+#sideMenu a
+{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#sideMenu a:hover
+{
+    color: #f1f1f1;
+}
+
+#sideMenu .closebtn
+{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+header, section
+{
+    border-bottom: 1px solid black;
+}
+
+#content
+{
+    flex: 1;
+    text-align: center;
+    background-color: #fab900;
+    margin: 0px;
+    padding: 0px;
+}
+
+#content ul
+{
+    padding: 0;
+}
+
+#content ul li
+{
+    display:block;
+    list-style: none;
+    max-width:50%;
+    background-color: white;
+    margin: 10px auto;
+    padding: 0;
+    border: 1px solid black;
+}
+
+#content ul li a
+{
+    display:block;
+    padding: 5px;
+    color: black;
+}
+  
+#content ul li:hover
+{
+    text-decoration: none;
+    background-color: #33B5E5;
+}
+
+footer
+{
+    margin: 5 px;
+}
+
+@media screen and (max-height: 450px)
+{
+    #sideMenu {padding-top: 15px;}
+    #sideMenu a {font-size: 18px;}
+} 

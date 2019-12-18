@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'css/ynquiz.css' %}"/>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <title>{% block title %}ynQuiz{% endblock %}</title>
+        <script type="text/javascript" src="{% static 'js/sidemenu.js' %}"></script>
+    </head>
+    <body>
+        {% block header %}
+        {% endblock %}
+        <nav>
+            {% block nav %}
+            {% endblock %}
+        </nav>
+        <section id="content">
+            {% block content %}{% endblock %}
+        </section>
+        <footer>&copy; ynQuiz 2019</footer>
+    </body>
+</html>
