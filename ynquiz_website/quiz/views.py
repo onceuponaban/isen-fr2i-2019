@@ -12,3 +12,7 @@ def ranking(request):
 
 def signin(request):
     return render(request, 'quiz/signin.html', locals())
+
+def modif(request):
+    return render(request, 'quiz/modif.html', locals())    
+
