@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     school_field = models.CharField(max_length=100)
-    score = models.IntegerField()
+    score = models.IntegerField(default=0)
     is_student = models.BooleanField('student status', default=False)
     is_teacher = models.BooleanField('teacher status', default=False)
     
