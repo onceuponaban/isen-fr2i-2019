@@ -7,6 +7,13 @@
 {% include 'quiz/nav.html' %}
 {% endblock %}
 {% block content %}
-<h2>Jeu</h2>
-<p>Ceci est la page contenant le jeu lui même.</p>
+
+<h3>{{ question.question_content }}</h3>
+<ul>
+{% for reponse in reponses %}
+    <li><a href="{% url "play" %}">{{ reponse.answer_text }}</a></li>
+{% endfor %}
+</ul>
+<button type="button">Valider</button> 
 {% endblock %}
+
