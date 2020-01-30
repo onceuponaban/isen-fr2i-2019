@@ -9,11 +9,43 @@
 {% block content %}
 
 <h3>{{ question.question_content }}</h3>
-<ul>
-{% for reponse in reponses %}
-    <li><a href="{% url "play" %}">{{ reponse.answer_text }}</a></li>
-{% endfor %}
-</ul>
-<button type="button">Valider</button> 
+<!-- <form action="/your-name/" method="post"></form> -->
+    {% for reponse in reponses %}
+    <!--<li><a>{{ reponse.answer_text }}</a></li> -->
+    <!--<button value='' >{{ i }}</button>-->
+    <!--<input type="radio" name="questionQuiz" value= {{ reponse.answer_text }}> {{ reponse.answer_text }} <br>-->
+    {% endfor %}
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        <ul id="id_choice_field">
+            <li>
+                <input type="radio" name="choice_field" value={{answerArray.0.0}} required="" id="id_choice_field_0"  >
+                <label for="id_choice_field_0">
+                 {{answerArray.0.1}}</label>
+
+            </li>
+            <li>
+                <input type="radio" name="choice_field" value={{answerArray.1.0}} required="" id="id_choice_field_1">
+                <label for="id_choice_field_1">
+                {{answerArray.1.1}}</label>
+        
+            </li>
+            <li>
+                <input type="radio" name="choice_field" value={{answerArray.2.0}} required="" id="id_choice_field_2" >
+                <label for="id_choice_field_2">
+                {{answerArray.2.1}}</label>
+            </li>
+        </ul>
+        </table>
+        <script type="text/javascript"> var questID = {{ questionID }} </script>
+        <button type="button" onclick="getAnswer(questID)">Change Content</button> 
+        
+    </form>
+   
+    {{ form.answerID }}
+    {{ reponseKey }}
+
 {% endblock %}
 

@@ -15,3 +15,4 @@ class Answer (models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
     answer_text = models.CharField(max_length=100)
     is_correct = models.BooleanField('correct answer', default=False)
+    
