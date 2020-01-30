@@ -21,20 +21,20 @@
         <table>
         <ul id="id_choice_field">
             <li>
-                <input type="radio" name="choice_field" value={{answerArray.0.0}} required="" id="id_choice_field_0"  >
-                <label for="id_choice_field_0">
+                <input type="radio" name="choice_field" value={{answerArray.0.0}} required="" id="id_choice_field_{{answerArray.0.0}}"  >
+                <label for="id_choice_field_{{answerArray.0.0}}">
                  {{answerArray.0.1}}</label>
 
             </li>
             <li>
-                <input type="radio" name="choice_field" value={{answerArray.1.0}} required="" id="id_choice_field_1">
-                <label for="id_choice_field_1">
+                <input type="radio" name="choice_field" value={{answerArray.1.0}} required="" id="id_choice_field_{{answerArray.1.0}}">
+                <label for="id_choice_field_{{answerArray.1.0}}">
                 {{answerArray.1.1}}</label>
         
             </li>
             <li>
-                <input type="radio" name="choice_field" value={{answerArray.2.0}} required="" id="id_choice_field_2" >
-                <label for="id_choice_field_2">
+                <input type="radio" name="choice_field" value={{answerArray.2.0}} required="" id="id_choice_field_{{answerArray.2.0}}" >
+                <label for="id_choice_field_{{answerArray.2.0}}">
                 {{answerArray.2.1}}</label>
             </li>
         </ul>
@@ -43,9 +43,10 @@
         <button type="button" onclick="getAnswer(questID)">Change Content</button> 
         
     </form>
-   
+    
+    <!--{{ goodAnswerID }}-->
     {{ form.answerID }}
-    {{ reponseKey }}
+    <!--{{ reponseKey }} -->
 
 {% endblock %}
 

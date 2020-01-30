@@ -35,9 +35,10 @@ function getAnswer(questID) {
     inputInChoiceField[0].disabled = true;
     inputInChoiceField[1].disabled = true;
     inputInChoiceField[2].disabled = true;
+
     //ID of the answer selected by the user 
     answID = document.querySelector('input[name="choice_field"]:checked').value;
-    document.querySelector('input[name="choice_field"]:checked').parentElement.parentElement.style.backgroundColor = "#0DFF92" ; 
+    //document.querySelector('input[name="choice_field"]:checked').parentElement.parentElement.style.backgroundColor = "#0DFF92" ; 
     
     //Handle the response of the server
     xhttp = new XMLHttpRequest();
@@ -47,13 +48,18 @@ function getAnswer(questID) {
         var responseObject = JSON.parse(this.responseText);
         var goodAnswerBool = responseObject["goodAnswerBool"] ; 
         var goodAnswerID = responseObject["goodAnswerID"] ; 
+        var idHtmlGoodAnswer = 'id_choice_field_' +  goodAnswerID ; 
         //Compute the server's responses : 
         if(true == goodAnswerBool)
         {
             console.log("Bonne Réponse");
+            document.querySelector('input[name="choice_field"]:checked').nextElementSibling.style.backgroundColor = "#0DFF92";
         }
         else {
             console.log("Mauvaise Réponse");
+            console.log("bonne rep : " + goodAnswerID);
+            document.querySelector('input[name="choice_field"]:checked').nextElementSibling.style.backgroundColor = "#ff0000";
+            document.getElementById(idHtmlGoodAnswer).nextElementSibling.style.backgroundColor = "#0DFF92";
         }
       }
     };
@@ -63,16 +69,3 @@ function getAnswer(questID) {
     xhttp.send("questionID=" + questID + "&answerID=" + answID + "&csrfmiddlewaretoken=" + csrftoken );
 }  
 
-function changeColorChoice(el)
-{
-    if(el.parentElement.parentElement.style.backgroundColor == "#FFFFFF")
-    {
-        el.parentElement.parentElement.style.backgroundColor = "#0DFF92" ; 
-    }
-    else {
-        el.parentElement.parentElement.style.backgroundColor = "#FFFFFF" ; 
-    }
-    //document.querySelectorAll('input[name="choice_field"]').parentElement.parentElement.style.backgroundColor = "#FFFFFF" ; 
-    //document.querySelectorAll('li').style.backgroundColor = "#FFFFFF" ;
-    //document.querySelector('input[name="choice_field"]:checked').parentElement.parentElement.style.backgroundColor = "#0DFF92" ; 
-}

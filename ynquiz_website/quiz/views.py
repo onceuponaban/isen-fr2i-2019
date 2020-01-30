@@ -25,9 +25,10 @@ def play(request):
         #We take all the answer from the question
         answers = Answer.objects.filter(question__id=questionID)
         #We take the object of the good answer
-        goodAnswerObject = Answer.objects.filter(question__id=1, is_correct=True)
+        goodAnswerObject = Answer.objects.filter(question__id=questionID, is_correct=True)
         #We take the ID of the good answer
-        goodAnswerID = goodAnswerObject[0].id
+        #We put '-1' because in Django the list of QuerySet start with the ID 1, not 0
+        goodAnswerID = goodAnswerObject[0].id - 1
         
         #If the answer selected by the user is right...
         if True == answers[int(answerID)].is_correct : 
@@ -73,8 +74,6 @@ def play(request):
         form.fields['choice_field'].choices = answersArray
         #We put the good answer ID in the form 
         form.answerID = goodAnswer
-        print("OUIOUIOUI")
-        print(answersArray)
         #Set up of the data set send at the HTML page when it's loading
         context = {
             'form' : form,
