@@ -9,44 +9,39 @@
 {% block content %}
 
 <h3>{{ question.question_content }}</h3>
-<!-- <form action="/your-name/" method="post"></form> -->
-    {% for reponse in reponses %}
-    <!--<li><a>{{ reponse.answer_text }}</a></li> -->
-    <!--<button value='' >{{ i }}</button>-->
-    <!--<input type="radio" name="questionQuiz" value= {{ reponse.answer_text }}> {{ reponse.answer_text }} <br>-->
-    {% endfor %}
     
     <form action="" method="post">
         {% csrf_token %}
         <table>
         <ul id="id_choice_field">
             <li>
-                <input type="radio" name="choice_field" value={{answerArray.0.0}} required="" id="id_choice_field_{{answerArray.0.0}}"  >
+                <input type="radio" name="choice_field" value={{answerArray.0.0}} required="" id="id_choice_field_{{answerArray.0.0}}" onClick="buttonAllowed('validate')" >
                 <label for="id_choice_field_{{answerArray.0.0}}">
                  {{answerArray.0.1}}</label>
 
             </li>
             <li>
-                <input type="radio" name="choice_field" value={{answerArray.1.0}} required="" id="id_choice_field_{{answerArray.1.0}}">
+                <input type="radio" name="choice_field" value={{answerArray.1.0}} required="" id="id_choice_field_{{answerArray.1.0}}" onClick="buttonAllowed('validate')">
                 <label for="id_choice_field_{{answerArray.1.0}}">
                 {{answerArray.1.1}}</label>
         
             </li>
             <li>
-                <input type="radio" name="choice_field" value={{answerArray.2.0}} required="" id="id_choice_field_{{answerArray.2.0}}" >
+                <input type="radio" name="choice_field" value={{answerArray.2.0}} required="" id="id_choice_field_{{answerArray.2.0}}" onClick="buttonAllowed('validate')">
                 <label for="id_choice_field_{{answerArray.2.0}}">
                 {{answerArray.2.1}}</label>
             </li>
         </ul>
         </table>
+        <div id="answerDisplay" >
+             
+        </div>
         <script type="text/javascript"> var questID = {{ questionID }} </script>
-        <button type="button" onclick="getAnswer(questID)">Change Content</button> 
+        <button id="validateButton" type="button" onclick="getAnswer(questID)">Valider</button> <br>
+        <button id="continueButton" type="button" onClick="window.location.reload();">Continuer</button>
+        
         
     </form>
-    
-    <!--{{ goodAnswerID }}-->
-    {{ form.answerID }}
-    <!--{{ reponseKey }} -->
 
 {% endblock %}
 

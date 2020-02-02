@@ -27,6 +27,17 @@ function getCookie(name) {
 }
 var csrftoken = getCookie('csrftoken');
 
+function  buttonAppear(buttonType) {
+    var cssIdButton = buttonType + 'Button' ; 
+    document.getElementById( cssIdButton ).style.visibility = "visible" ;
+}
+
+function buttonAllowed(buttonType) {
+    var cssIdButton = buttonType + 'Button' ; 
+    document.getElementById( cssIdButton ).style.opacity = 1 ;
+    document.getElementById( cssIdButton ).style.cursor = "pointer" ;
+}
+
 function getAnswer(questID) {
 
     //We disabled all radio buttons after the user validate his answer 
@@ -38,6 +49,7 @@ function getAnswer(questID) {
 
     //ID of the answer selected by the user 
     answID = document.querySelector('input[name="choice_field"]:checked').value;
+    
     //document.querySelector('input[name="choice_field"]:checked').parentElement.parentElement.style.backgroundColor = "#0DFF92" ; 
     
     //Handle the response of the server
@@ -48,19 +60,32 @@ function getAnswer(questID) {
         var responseObject = JSON.parse(this.responseText);
         var goodAnswerBool = responseObject["goodAnswerBool"] ; 
         var goodAnswerID = responseObject["goodAnswerID"] ; 
+        //We create a string that will be used to change the CSS of the form, by targeting the ID of the block
         var idHtmlGoodAnswer = 'id_choice_field_' +  goodAnswerID ; 
+        var answerText = "" ; 
         //Compute the server's responses : 
         if(true == goodAnswerBool)
         {
-            console.log("Bonne Réponse");
+            answerText = "Bonne Réponse !" ; 
+            console.log(answerText);
             document.querySelector('input[name="choice_field"]:checked').nextElementSibling.style.backgroundColor = "#0DFF92";
+            document.getElementById("answerDisplay").style.backgroundColor =  "#0DFF92" ; 
+            document.getElementById("validateButton").style.color = "#0dff92" ; 
         }
         else {
-            console.log("Mauvaise Réponse");
+            answerText = "Mauvaise Réponse !" ; 
+            console.log(answerText);
             console.log("bonne rep : " + goodAnswerID);
             document.querySelector('input[name="choice_field"]:checked').nextElementSibling.style.backgroundColor = "#ff0000";
             document.getElementById(idHtmlGoodAnswer).nextElementSibling.style.backgroundColor = "#0DFF92";
+            document.getElementById("answerDisplay").style.backgroundColor =  "#ff0000"; 
+            document.getElementById("validateButton").style.color = "#ff0000" ; 
         }
+        document.getElementById("validateButton").remove();
+        buttonAppear('continue') ; 
+        document.getElementById("answerDisplay").style.visibility = "visible" ; 
+        document.getElementById("answerDisplay").innerHTML = answerText;
+        document.querySelector('input[name="choice_field"]:checked').checked = false;
       }
     };
     //Request to the server
