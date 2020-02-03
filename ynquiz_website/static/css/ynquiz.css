@@ -184,19 +184,17 @@ input[type=radio]:checked ~ label{
 
 table
 {
+    width: 80%;
+    background-color: white;
     margin-left: auto;
     margin-right: auto;
-    border-collapse: collapse;
-}
-  
-table, th, td
-{
-    border: 1px solid black;
+    border: 1px solid gray;
+    border-radius: 5px;
 }
 
-th
+th.side_column
 {
-    background-color: white;
+    width: 20%;
 }
   
 
