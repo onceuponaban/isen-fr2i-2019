@@ -14,8 +14,6 @@
 
 {% if user.is_authenticated %}
         Bienvenue {{ user.username }}
-        {{ user.id }}
-        {{ user.score }}
 {% else %}
         <p>Vous n'êtes pas connecté</p>
 {% endif %}
