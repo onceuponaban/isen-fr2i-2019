@@ -34,12 +34,27 @@ def play(request):
         if True == answers[int(answerID)].is_correct : 
         #We set the boolean to True
             goodAnswerBool = True
+
+            print("score : ")
+            print(request.user.score)
+            print("new score:")
+            request.user.score += 10
+            print(request.user.score)
+            request.user.save()
+            
         #We set the boolean to False
         else:
             goodAnswerBool = False
+
+            print("score : ")
+            print(request.user.score)
+            print("score : ")
+            print(request.user.score)
+            print("new score:")
+            request.user.score += -5
+            print(request.user.score)
+            request.user.save()
         
-        print("GOOD ANSWER ID")
-        print(goodAnswerID)
         data = {
             'goodAnswerBool': goodAnswerBool,
             'goodAnswerID': goodAnswerID,

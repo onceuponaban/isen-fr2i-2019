@@ -129,4 +129,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+LOGIN_REDIRECT_URL = 'homeco'
+LOGOUT_REDIRECT_URL = 'homeco'
+
 from .local_settings import *
