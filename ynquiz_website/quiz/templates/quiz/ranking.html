@@ -9,4 +9,7 @@
 {% block content %}
 <h2>Classement</h2>
 <p>Ceci est la page contenant le classement.</p>
+{% for user in users %}
+    <p>{{ user.username }}: {{ user.score }}
+{% endfor %}
 {% endblock %}

@@ -7,6 +7,7 @@ from random import randint
 from django.http import HttpResponseRedirect
 from quiz.forms import QuizForm
 from django.http import JsonResponse
+from quiz.models import User
 
 def home(request):
     return render(request, 'quiz/home.html', locals())
@@ -92,6 +93,7 @@ def play(request):
     return theReturn
 
 def ranking(request):
+    users = User.objects.filter(is_student=True)
     return render(request, 'quiz/ranking.html', locals())
 
 def signin(request):
