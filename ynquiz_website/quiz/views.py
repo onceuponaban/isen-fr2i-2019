@@ -47,7 +47,8 @@ def play(request):
         
     # If this is a GET (or any other method) create the default form.
     else:
-        #Initiate the random        seed()
+        #Initiate the random        
+        seed()
         #We take a question randomly
         questionID = randint(1,Question.objects.all().count())
         #We take all the answers possible
