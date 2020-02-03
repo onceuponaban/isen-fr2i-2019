@@ -181,6 +181,23 @@ input[type=radio]:checked ~ label{
     cursor: pointer;
     border-radius: 5px;
 }
+
+table
+{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+  
+table, th, td
+{
+    border: 1px solid black;
+}
+
+th
+{
+    background-color: white;
+}
   
 
 footer

@@ -93,7 +93,7 @@ def play(request):
     return theReturn
 
 def ranking(request):
-    users = User.objects.filter(is_student=True)
+    users = User.objects.filter(is_student=True).order_by('-score')
     return render(request, 'quiz/ranking.html', locals())
 
 def signin(request):

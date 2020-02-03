@@ -25,7 +25,7 @@ class UserAdmin(BaseUserAdmin):
     list_display = ('email', 'is_student', 'is_teacher', 'is_staff')
     list_filter = ('is_student','is_teacher', 'is_staff')
     fieldsets = BaseUserAdmin.fieldsets + (
-        (None, {'fields': ('is_student','is_teacher',)}),
+        (None, {'fields': ('is_student','is_teacher','score')}),
     )
     search_fields = ('email',)
     ordering = ('email',)
