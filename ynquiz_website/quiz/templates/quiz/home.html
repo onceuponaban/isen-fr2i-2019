@@ -18,5 +18,8 @@
 <ul>
     <li><a href="{% url "play" %}">Jouer à ynQuiz</a></li>
     <li><a href="{% url "ranking" %}">Classement</a></li>
+    {% if request.user.is_superuser %}
+    <li><a href="{% url "admin:index" %}">Administration</a></li>
+    {% endif %}
 </ul>
 {% endblock %}
