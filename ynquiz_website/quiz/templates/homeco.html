@@ -1,11 +1,15 @@
-{% extends "base.html" %}
-{% block title %}ynQuiz - Accueil{% endblock %}
+{% extends "baseco.html" %}
+
+{% block title%}ynQuiz - Accueil{% endblock %}
+
 {% block header %}
 {% include 'quiz/header.html' %}
 {% endblock %}
 {% block nav %}
 {% include 'quiz/nav.html' %}
 {% endblock %}
+
+
 {% block content %}
 
 {% if user.is_authenticated %}
@@ -13,6 +17,7 @@
 {% else %}
         <p>Vous n'êtes pas connecté</p>
 {% endif %}
+
 
 <h2>Menu principal</h2>
 <ul>
