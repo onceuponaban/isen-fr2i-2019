@@ -24,12 +24,11 @@ def play(request):
         answerID = request.POST['answerID']
         #We take all the answer from the question
         answers = Answer.objects.filter(question__id=questionID)
-        #We take the object of the good answer
-        goodAnswerObject = Answer.objects.filter(question__id=questionID, is_correct=True)
-        #We take the ID of the good answer
-        #We put '-1' because in Django the list of QuerySet start with the ID 1, not 0
-        goodAnswerID = goodAnswerObject[0].id - 1
-        
+         #We take the ID of the good answer
+        for i in range(0,answers.count()):
+            if(answers[i].is_correct == True):
+                goodAnswerID = i
+
         #If the answer selected by the user is right...
         if True == answers[int(answerID)].is_correct : 
         #We set the boolean to True
@@ -48,15 +47,22 @@ def play(request):
         
     # If this is a GET (or any other method) create the default form.
     else:
-        questionID = 1
+        #Initiate the random        seed()
+        #We take a question randomly
+        questionID = randint(1,Question.objects.all().count())
+        #We take all the answers possible
         answers = Answer.objects.filter(question__id=questionID)
+        #We take the question
         question = Question.objects.filter(id=questionID)
+        #Array of the iteration to random the answer
         keys = []
+        #Array of answers randomed
         answersArray = []
+        #Array to stock the answer temporaly
         anAnswer = []
-        seed()
+        #We create a form (not used anymore)
         form = QuizForm(request.POST or None)
-        #We randomise all the answers
+        #We randomise all the answers and put i in a format to be understand by the form
         for i in range(0,3) : 
             while True:
                 key = randint(0,2)
